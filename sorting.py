@@ -57,6 +57,16 @@ def bubble_sort(list_of_numbers):
         list_of_numbers[:list_length - i] = l
     return list_of_numbers
 
+def insertion_sort(list_of_numbers):
+    n = len(list_of_numbers)
+    for i in range(1, n):
+        key = list_of_numbers[i]
+        j = i - 1
+        while j >= 0 and list_of_numbers[j] > key:
+            list_of_numbers[j + 1] = list_of_numbers[j]
+            j = j - 1
+        list_of_numbers[j + 1] = key
+    return list_of_numbers
 
 def main():
     pass
@@ -67,6 +77,8 @@ if __name__ == '__main__':
     print(data)
     # sorted_data = selection_sort(data["series_2"], "up")
     # print(sorted_data)
-    bubble_data = bubble_sort(data["series_3"])
-    print(bubble_data)
+    # bubble_data = bubble_sort(data["series_1"])
+    # print(bubble_data)
+    ins_sort = insertion_sort(data["series_3"])
+    print(ins_sort)
     main()
