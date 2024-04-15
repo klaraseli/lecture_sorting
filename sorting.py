@@ -45,7 +45,17 @@ def selection_sort(list_of_numbers, direction="up"):
             list_of_numbers[idx], list_of_numbers[position] = list_of_numbers[position], list_of_numbers[idx]
     return list_of_numbers
 
-
+def bubble_sort(list_of_numbers):
+    list_length = len(list_of_numbers)
+    for i in range(list_length):
+        l = list_of_numbers[:list_length - i]
+        for idx, number in enumerate(l):
+            if idx < len(l) - 1:
+                next_number = l[idx + 1]
+                if number > next_number:
+                    l[idx], l[idx + 1] = l[idx + 1], l[idx]
+        list_of_numbers[:list_length - i] = l
+    return list_of_numbers
 
 
 def main():
@@ -55,6 +65,8 @@ def main():
 if __name__ == '__main__':
     data = read_data("numbers.csv")
     print(data)
-    sorted_data = selection_sort(data["series_2"], "up")
-    print(sorted_data)
+    # sorted_data = selection_sort(data["series_2"], "up")
+    # print(sorted_data)
+    bubble_data = bubble_sort(data["series_3"])
+    print(bubble_data)
     main()
